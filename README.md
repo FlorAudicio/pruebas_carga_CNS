@@ -15,15 +15,13 @@
    
    (Para habilitar la opción para ver plugins en Jmeter seguir el siguiente link https://jmeter-plugins.org/wiki/PluginsManager/)
  
- > Pasos para ejecutar la prueba : Descargar archivo comprimido adjunto.
+ > Pasos para ejecutar la prueba : Descargar archivo comprimido adjunto ("capturas_jmeter".rar )
  
- > URL de prueba: http://dconvm238:8080/web/convenios-consorcio/compra-tu-soap (sujeta a cambios de ambiente coordinar con equipo. Se accede por VPN CNS)
+ > URL de prueba: Ej: http://dconvm238:8080/web/convenios-consorcio/compra-tu-soap (Esto se ingresa en el script automatizado)
  
  > Rut de prueba: Coordinar con equipo
  
  > Patentes: Coordinar con equipo
- 
- > En el archivo .rar adjunto capturas_jmeter se encuentran imágenes con el procedimiento a seguir en jmeter
  
  
  ---- Tips Data de prueba----
