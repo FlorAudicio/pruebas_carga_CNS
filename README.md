@@ -3,7 +3,7 @@
  
  > Chromedriver: Last Version 
  
- > Software: Jmeter V. 3.2 r1790748
+ > Software: Jmeter V. 3.2 r1790748 o superior
  
  > Plugins utilizados en Jmeter: 
  
