@@ -23,4 +23,6 @@
  
  > Patentes: Coordinar con equipo
  
+ > En el archivo .rar adjunto capturas_jmeter se encuentran imágenes con el procedimiento a seguir en jmeter
+ 
                     
