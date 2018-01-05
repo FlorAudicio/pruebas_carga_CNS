@@ -7,9 +7,13 @@
  
  > Plugins utilizados en Jmeter: 
  
+ 
+ 
    - Selenium/WebDriver suport
    - HTTP/2 Sampler
    - jmeter - Java Components
+   
+   (Para habilitar la opción para ver plugins en Jmeter seguir el siguiente link https://jmeter-plugins.org/wiki/PluginsManager/)
  
  > Pasos para ejecutar la prueba : Descargar archivo comprimido adjunto.
  
