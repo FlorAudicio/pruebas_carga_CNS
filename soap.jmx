@@ -30,6 +30,7 @@
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
       </ThreadGroup>
       <hashTree>
         <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config" enabled="true">
@@ -62,7 +63,7 @@
           <boolProp name="recycle">true</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
           <boolProp name="stopThread">false</boolProp>
-          <stringProp name="variableNames">rut</stringProp>
+          <stringProp name="variableNames">rut,patente</stringProp>
         </CSVDataSet>
         <hashTree/>
         <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler" enabled="true">
@@ -73,70 +74,71 @@ var wait = new support_ui.WebDriverWait(WDS.browser, 5000);
 var conditions = org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-
 WDS.sampleResult.sampleStart(); //captures sampler&apos;s start time
 WDS.sampleResult.getLatency();
-WDS.log.info(&quot;Sample started&quot;);
+WDS.log.info(&quot;Sample started&quot;); 
 
-WDS.browser.get(&apos;http://dconvm238:8080/web/convenios-consorcio&apos;); 
+// URL donde se va ejecutar la prueba
+
+WDS.browser.get(&apos;http://tconvm238:8080/web/convenios-consorcio&apos;); 
 
 
 //PASO 1 COMPRA TU SOAP
 
-var rut = WDS.browser.findElement(pkg.By.id(&apos;rutPagador&apos;)); 
-rut.sendKeys(&apos;${rut}&apos;);
+var rut = WDS.browser.findElement(pkg.By.id(&apos;rutPagador&apos;)); // Búsqueda de campo
+rut.sendKeys(&apos;${rut}&apos;); //Se completa el campo con el parámetro que está en el archivo CSV
+java.lang.Thread.sleep(3000)
+
+
+var patente = WDS.browser.findElement(pkg.By.id(&apos;patente&apos;)); // Búsqueda de campo
+patente.sendKeys([&apos;${patente}&apos;]); //Se completa el campo con el parámetro que está en el archivo CSV
+java.lang.Thread.sleep(3000)
+
+WDS.log.info(&quot;Rut de Prueba:&quot;+&apos;${rut}&apos;+ &quot;----&quot; + &quot;Pantente de Prueba: &quot; + &apos;${patente}&apos;); // Se imprime por consola los datos usados en cada hilo
+
+var yearVehiculo = WDS.browser.findElement(pkg.By.id(&apos;yearVehiculo&apos;)); // Búsqueda de campo
+yearVehiculo.click(); //click en campo para que se autocomplete la grilla de datos del vehículo
+java.lang.Thread.sleep(5000)
+
+var rutProp = WDS.browser.findElement(pkg.By.id(&apos;rutProp&apos;)); // Búsqueda de campo
+rutProp.sendKeys([&apos;135516597&apos;]);// Dato en duro para que sea completado
 java.lang.Thread.sleep(1000)
 
-var patente = WDS.browser.findElement(pkg.By.id(&apos;patente&apos;)); 
-patente.sendKeys([&apos;AB1234&apos;]);
+var nombresProp = WDS.browser.findElement(pkg.By.id(&apos;nombresProp&apos;)); // Búsqueda de campo
+nombresProp.sendKeys([&apos;NombreTest&apos;]);// Dato en duro para que sea completado
 java.lang.Thread.sleep(1000)
 
-var yearVehiculo = WDS.browser.findElement(pkg.By.id(&apos;yearVehiculo&apos;)); 
-yearVehiculo.click();
+var apellidoPatProp = WDS.browser.findElement(pkg.By.id(&apos;apellidoPatProp&apos;)); // Búsqueda de campo
+apellidoPatProp.sendKeys([&apos;Apellido1Test&apos;]);// Dato en duro para que sea completado
 java.lang.Thread.sleep(1000)
 
-var rutProp = WDS.browser.findElement(pkg.By.id(&apos;rutProp&apos;)); 
-rutProp.sendKeys([&apos;135516597&apos;]);
+var apellidoMatProp = WDS.browser.findElement(pkg.By.id(&apos;apellidoMatProp&apos;)); // Búsqueda de campo
+apellidoMatProp.sendKeys([&apos;Apellido2Test&apos;]);// Dato en duro para que sea completado
 java.lang.Thread.sleep(1000)
 
-var nombresProp = WDS.browser.findElement(pkg.By.id(&apos;nombresProp&apos;)); 
-nombresProp.sendKeys([&apos;NombreTest&apos;]);
-java.lang.Thread.sleep(1000)
-
-var apellidoPatProp = WDS.browser.findElement(pkg.By.id(&apos;apellidoPatProp&apos;)); 
-apellidoPatProp.sendKeys([&apos;Apellido1Test&apos;]);
-java.lang.Thread.sleep(1000)
-
-var apellidoMatProp = WDS.browser.findElement(pkg.By.id(&apos;apellidoMatProp&apos;)); 
-apellidoMatProp.sendKeys([&apos;Apellido2Test&apos;]);
-java.lang.Thread.sleep(1000)
-
-WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=&apos;shoppingCart-step1&apos;]/form/div[5]/div[3]/div[2]/button&quot;)).click()
+WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=&apos;shoppingCart-step1&apos;]/form/div[5]/div[3]/div[2]/button&quot;)).click()// Búsqueda de botón y click
 java.lang.Thread.sleep(4000)
 
 //PASO 2 COMPRA TU SOAP 
 
-var carroEmail = WDS.browser.findElement(pkg.By.id(&apos;carroEmail&apos;)); 
-carroEmail.sendKeys([&apos;flor.audicio@tinet.cl&apos;]);
+
+var carroEmail = WDS.browser.findElement(pkg.By.id(&apos;carroEmail&apos;)); // Búsqueda de campo
+carroEmail.sendKeys([&apos;flor.audicio@tinet.cl&apos;]);// Dato en duro para que sea completado
 java.lang.Thread.sleep(1000)
 
-var carroEmailConfirmar = WDS.browser.findElement(pkg.By.id(&apos;carroEmailConfirmar&apos;)); 
-carroEmailConfirmar.sendKeys([&apos;flor.audicio@tinet.cl&apos;]);
+var carroEmailConfirmar = WDS.browser.findElement(pkg.By.id(&apos;carroEmailConfirmar&apos;)); // Búsqueda de campo
+carroEmailConfirmar.sendKeys([&apos;flor.audicio@tinet.cl&apos;]);// Dato en duro para que sea completado
 java.lang.Thread.sleep(1000)
 
-WDS.browser.findElement(pkg.By.id(&apos;pagar&apos;)).click();
+WDS.browser.findElement(pkg.By.id(&apos;pagar&apos;)).click();// Búsqueda de botón y click
 java.lang.Thread.sleep(3000)
 
 
-//PASO 3 COMPRA TU SOAP
+//PASO 3 COMPRA TU SOAP --&gt; No se realizará ya que el flujo que se simulará será sin pago
 
-
-
-
-
-
-java.lang.Thread.sleep(3000)</stringProp>
-          <stringProp name="WebDriverSampler.parameters">${rut} </stringProp>
+java.lang.Thread.sleep(3000)
+WDS.log.info(WDS.name + &apos; Prueba finalizada con éxito&apos;); // Mensaje de fin</stringProp>
+          <stringProp name="WebDriverSampler.parameters">${rut},${patente},</stringProp>
           <stringProp name="WebDriverSampler.language">javascript</stringProp>
         </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
         <hashTree>
@@ -204,6 +206,44 @@ java.lang.Thread.sleep(3000)</stringProp>
                 <assertionsResultsToSave>0</assertionsResultsToSave>
                 <bytes>true</bytes>
                 <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>false</assertions>
+                <subresults>true</subresults>
+                <responseData>true</responseData>
+                <samplerData>true</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>true</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <hostname>true</hostname>
                 <threadCounts>true</threadCounts>
                 <idleTime>true</idleTime>
                 <connectTime>true</connectTime>
