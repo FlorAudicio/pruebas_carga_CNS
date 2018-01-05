@@ -29,6 +29,7 @@
  ---- Tips Data de prueba----
  
  > Asegurarse que los rut,patente que listen en el archivo CSV estén relacionados entre sí
+ 
  > La patente debe corresponder a un tipo de vehículo del listado (Es decir, que no sea SIN MOTOR)
  
                     
