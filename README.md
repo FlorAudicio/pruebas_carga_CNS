@@ -20,6 +20,8 @@
  
  > Este script se realizó sobre el sitio responsivo de SOAP, sin embargo se puede modificar teniendo cuidado en modificar también el nombre de los campos correspondientes en el script.
  
+ > Este script sigue el flujo de SOAP responsivo paso 1 y 2 (solicitaron que fuera sin pago para las pruebas lo que implica sólo estos dos pasos), por lo tanto, en caso de desear que el flujo continue se deben agregar al script los nuevos botones y campos sobre los cuales hacer click e ingresar información (se recomienda buscar los campos y botones mediante el ID). Para agregar nuevas funciones al script apoyarse en la siguiente documentación: https://jmeter-plugins.org/wiki/WebDriverSampler/.
+ 
  ---- Cargar Data de prueba----
  
  > Se ingresan en el archivo adjunto CSV con el siguiente formato
