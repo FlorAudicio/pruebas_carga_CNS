@@ -27,7 +27,7 @@
     DatoA,DatoB,DatoC,...
     (Rut,Patente,Mail,...)
     
- > Para cada campo nuevo que se agregue en el archivo CSV (recordar que el campo nuevo se agrega separado por " , " de los demás) se debe agregar también en la configuración del CSV y el script en Jmeter (ver el archivo "capturas_jmeter.rar" para saber donde y como)
+ > Para cada campo nuevo que se agregue en el archivo CSV (recordar que el campo nuevo se agrega separado por " , " de los demás) estos se deben agregar también en la configuración del CSV y el script en Jmeter (ver el archivo "capturas_jmeter.rar" para saber donde y como)
  
  > Se pueden añadir la cantidad de filas deseadas siguiendo el orden de los datos ingresados en la primera fila (revisar archivo CSV adjunto)
  
