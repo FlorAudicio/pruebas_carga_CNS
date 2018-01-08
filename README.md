@@ -17,17 +17,22 @@
  
  > Pasos para ejecutar la prueba : Descargar archivo comprimido adjunto ("capturas_jmeter".rar )
  
- > URL de prueba: Ej: http://dconvm238:8080/web/convenios-consorcio/compra-tu-soap (Esto se ingresa en el script automatizado)
+ > URL de prueba: Ej: http://dconvm238:8080/web/convenios-consorcio/compra-tu-soap (Esto se ingresa en el script automatizado "soap.jmx")
  
- > Rut de prueba: Coordinar con equipo
+ ---- Cargar Data de prueba----
  
- > Patentes: Coordinar con equipo
+ > Se ingresan en el archivo adjunto CSV con el siguiente formato
+ 
+    DatoA,DatoB,DatoC,...
+    (Rut,Patente,Mail,...)
+ 
+ > Se pueden añadir la cantidad de filas deseadas siguiendo el orden de los datos ingresados en la primera fila
  
  
  ---- Tips Data de prueba----
  
- > Asegurarse que los rut,patente que listen en el archivo CSV estén relacionados entre sí
+ > Asegurarse que los rut, patente, etc, que listen en el archivo CSV estén relacionados entre sí
  
- > La patente debe corresponder a un tipo de vehículo del listado (Es decir, que no sea SIN MOTOR)
+ > En el caso de listar como dato en el archivo Patente, asegurarse que corresponda a un tipo de vehículo del listado (Es decir, que NO sea SIN MOTOR)
  
                     
