@@ -8,7 +8,6 @@
  > Plugins utilizados en Jmeter: 
  
  
- 
    - Selenium/WebDriver suport
    - HTTP/2 Sampler
    - jmeter - Java Components
@@ -17,7 +16,9 @@
  
  > Pasos para ejecutar la prueba : Descargar archivo comprimido adjunto ("capturas_jmeter".rar )
  
- > URL de prueba: Ej: http://dconvm238:8080/web/convenios-consorcio/compra-tu-soap (Esto se ingresa en el script automatizado "soap.jmx")
+ > URL de prueba: En el script se basó en la siguiente URL http://dconvm238:8080/web/convenios-consorcio/compra-tu-soap, sin embargo esto depende del ambiente y es totalmente modificable (Esto se ingresa en el script automatizado "soap.jmx")
+ 
+ > Este script se realizó sobre el sitio responsivo de SOAP, sin embargo se puede modificar teniendo cuidado en modificar también el nombre de los campos correspondientes en el script.
  
  ---- Cargar Data de prueba----
  
@@ -25,8 +26,10 @@
  
     DatoA,DatoB,DatoC,...
     (Rut,Patente,Mail,...)
+    
+ > Para cada campo nuevo que se agregue en el archivo CSV (recordar que el campo nuevo se agrega separado por " , " de los demás) se debe agregar también en la configuración del CSV y el script en Jmeter (ver el archivo "capturas_jmeter.rar" para saber donde y como)
  
- > Se pueden añadir la cantidad de filas deseadas siguiendo el orden de los datos ingresados en la primera fila
+ > Se pueden añadir la cantidad de filas deseadas siguiendo el orden de los datos ingresados en la primera fila (revisar archivo CSV adjunto)
  
  
  ---- Tips Data de prueba----
@@ -35,4 +38,10 @@
  
  > En el caso de listar como dato en el archivo Patente, asegurarse que corresponda a un tipo de vehículo del listado (Es decir, que NO sea SIN MOTOR)
  
+ 
+---- BackUp----
+
+> Leonel Saá (principal) (célula de SOAP, líder Elias Gárate)
+> Lorens Sepúlveda (secundario) (célula de SOAP, líder Elias Gárate)
+> flor.audicio@tinet.cl
                     
